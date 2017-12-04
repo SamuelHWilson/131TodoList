@@ -1,0 +1,22 @@
+{
+  "name": "131todolist",
+  "version": "1.0.0",
+  "description": "Electron task list application.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamuelHWilson/131TodoList.git"
+  },
+  "author": "Samuel Wilson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamuelHWilson/131TodoList/issues"
+  },
+  "homepage": "https://github.com/SamuelHWilson/131TodoList#readme",
+  "devDependencies": {
+    "electron": "^1.7.9"
+  }
+}
