@@ -4,7 +4,10 @@ const BrowserWindow = electron.BrowserWindow;
 const Menu = electron.Menu;
 
 app.on("ready", () => {
-    var mainWindow = new BrowserWindow();
+    var mainWindow = new BrowserWindow({
+        width: 400,
+        height: 700
+    });
     mainWindow.loadURL(`file://${__dirname}/tasks.html`);
     
     const menu = Menu.buildFromTemplate(menuTemplate);

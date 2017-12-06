@@ -1,0 +1,71 @@
+/* --- Fonts --- */
+@font-face {
+    font-family: 'Kalam';
+    src: url('res/fonts/kalam-regular.woff');
+}
+
+/* --- Utility --- */
+
+/* Stone Box Content Holder */
+.stone-box {
+    background-image: url("res/images/stone-tile.png");
+    border: 1px solid gray;
+    padding: 5px;
+}
+.stone-box > div {
+    background-image: url("res/images/parchment-pattern.jpg");
+    border: 1px solid gray;
+    padding: 3px;
+    height: 100%;
+    width: 100%;
+}
+.stone-box p, .stone-box h1 {
+    opacity: 0.9;
+}
+
+/* Headshot Content Holder (Can be merged with Stone Box) */
+.headshot-box {
+    padding: 12px;
+    padding-left: 0px;
+    position: relative;
+}
+.headshot-box img {
+    height: 100%;
+    width: auto;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border-radius: 50%;
+    background-image: url("res/images/stone-tile.png");
+    border: 1px solid gray;
+    padding: 1px;
+}
+
+/* --- General --- */
+
+/* --- Specific --- */ 
+
+body {
+    background-image: url("res/images/background-temp.png");
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-color: rgb(85, 180, 255);
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0px;
+}
+
+header {
+    width: calc(100% - 200px);
+    margin: 5px;
+}
+header h1 {
+    font-family: Kalam;
+    font-weight: bold;
+    font-size: 1.6em;
+    margin: 3px;
+}
+
+#taskbox {
+    width: 100%;
+}
