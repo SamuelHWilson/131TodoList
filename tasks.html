@@ -7,32 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    <header class="stone-box">
-        <div>
-            <h1>Todo List</h1>
-        </div>
-    </header>
+    <script src="res/js/vue.js"></script>
+    <div id="main"> <!-- Main Vue -->
+        <header class="stone-box">
+            <div>
+                <h1>Todo List</h1>
+            </div>
+        </header>
 
-    <div id="taskbox">
-        <div class="stone-box task">
-            <div>
-                <button></button>
-                <p>Rescue Princess Peach</p>
-            </div>
-        </div>
-        <div class="stone-box task">
-            <div>
-                <button></button>
-                <p>Enchant Sword</p>
-            </div>
-        </div>
-        <div class="stone-box task">
-            <div>
-                <button></button>
-                <p>Take Armor to Cleaners</p>
+        <div id="taskbox">
+            <div v-for="task in tasks" class="stone-box task">
+                <div>
+                    <button></button>
+                    <p>{{task.desc}}</p>
+                </div>
             </div>
         </div>
     </div>
+
+    <script src="tasks.js"></script>
 </body>
 
 </html>

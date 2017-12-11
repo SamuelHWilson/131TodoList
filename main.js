@@ -2,9 +2,14 @@ const electron = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const Menu = electron.Menu;
+const ipc = electron.ipcMain;
+const dialog = electron.dialog;
+const fs = require("fs");
+
+var mainWindow;
 
 app.on("ready", () => {
-    var mainWindow = new BrowserWindow({
+    mainWindow = new BrowserWindow({
         width: 400,
         height: 700
     });
@@ -22,9 +27,12 @@ app.on("ready", () => {
 const menuTemplate = [
     {label: "Tasks", submenu: [
         {label: "New Task", click: () => {}},
-        {label: "Clear All Tasks", click: () => {}},
+        {label: "Clear All Tasks", click: () => {mainWindow.webContents.send("clear-tasks")}},
         {type: "separator"},
-        {label: "Load From File", click: () => {}}
+        {label: "Open...", click: () => {mainWindow.webContents.send("open-file")}},
+        {type: "separator"},
+        {label: "Save", click: () => {mainWindow.webContents.send("save-last")}},
+        {label: "Save As...", click: () => {mainWindow.webContents.send("save-file")}}
     ]},
     {label: "Application", submenu: [
         {label: "Close", role: "close"}
