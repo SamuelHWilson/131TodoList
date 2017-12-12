@@ -32,7 +32,6 @@ const menuTemplate = [
         {label: "Save As...", click: () => {mainWindow.webContents.send("save-file")}}
     ]},
     {label: "Tasks", submenu: [
-        {label: "New Task", click: () => {}},
         {label: "Clear All Tasks", click: () => {mainWindow.webContents.send("clear-tasks")}}
     ]},
     {label: "Application", submenu: [

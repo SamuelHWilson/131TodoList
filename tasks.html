@@ -22,6 +22,14 @@
                     <p>{{task.desc}}</p>
                 </div>
             </div>
+            <div id="taskbox-button" v-if="makingNew == false" v-on:click="makingNew = true">
+                <img src="raw/potion.png">
+            </div>
+            <div id="taskbox-new" v-if="makingNew == true" class="stone-box">
+                <div>
+                    <input id="taskbox-new-input" v-on:keyup.enter="SubmitNewTask()" type="text">
+                </div>
+            </div>
         </div>
     </div>
 

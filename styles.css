@@ -81,7 +81,7 @@ header h1 {
     width: 100%;
     padding: 0% 10%;
 }
-.task {
+.task, #taskbox-button, #taskbox-new {
     margin: 1em 0em;
 }
 .task p{
@@ -99,4 +99,12 @@ header h1 {
 }
 .task button:hover {
     background-color: black;
+}
+#taskbox-button img {
+    width: 35px;
+}
+#taskbox-new input {
+    height: 1.5em;
+    width: 100%;
+    font-family: Kalam;
 }

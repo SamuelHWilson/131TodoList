@@ -7,15 +7,25 @@ const DATA_LOCATION = `${__dirname}/res/data/tasks.json`;
 
 var currentFile = "";
 
+function TaskObj(desc) {
+    this.desc = desc;
+}
+
 var MainVue = new Vue({
     el: "#main",
     data: {
-        tasks: []
+        tasks: [],
+        makingNew: false,
     },
     methods: {
         CompleteTask(toRemove) {
             var index = this.tasks.indexOf(toRemove);
             this.tasks.splice(index, 1);
+        },
+        SubmitNewTask() {
+            this.tasks.push(new TaskObj(document.getElementById("taskbox-new-input").value));
+            document.getElementById("taskbox-new-input").value = "";
+            this.makingNew = false;
         }
     }
 });
