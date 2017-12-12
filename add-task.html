@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" fref="add-task.css">
+    <title>Add Task</title>
+</head>
+<body>
+    <script src="res/js/vue.js"></script>
+    <div id="main">
+        <header class="stone-box">
+            <div>
+                <h1>Add New Item</h1>
+            </div>
+        </header>
+        <div class="stone-box">
+            <div>
+                <input v-on:keyup.enter="CompleteAddingTask()" type="text">
+            </div>
+        </div>
+    </div>
+    <script src="add-task.js"></script>
+</body>
+
+</html>

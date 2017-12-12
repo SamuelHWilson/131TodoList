@@ -22,10 +22,16 @@ var MainVue = new Vue({
             var index = this.tasks.indexOf(toRemove);
             this.tasks.splice(index, 1);
         },
-        SubmitNewTask() {
+        StartAddingTask() {
+            this.makingNew = true;
+            Vue.nextTick(() => {
+                document.getElementById("taskbox-new-input").focus();
+            });
+        },
+        CompleteAddingTask() {
+            this.makingNew = false;
             this.tasks.push(new TaskObj(document.getElementById("taskbox-new-input").value));
             document.getElementById("taskbox-new-input").value = "";
-            this.makingNew = false;
         }
     }
 });

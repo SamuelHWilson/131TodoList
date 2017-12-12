@@ -7,6 +7,7 @@ const dialog = electron.dialog;
 const fs = require("fs");
 
 var mainWindow;
+var addTaskWindow;
 
 app.on("ready", () => {
     mainWindow = new BrowserWindow({
@@ -21,6 +22,7 @@ app.on("ready", () => {
     /* Cleanup */
     mainWindow.on("closed", () => {
         mainWindow = null;
+        app.quit();
     });
 });
 
@@ -32,13 +34,22 @@ const menuTemplate = [
         {label: "Save As...", click: () => {mainWindow.webContents.send("save-file")}}
     ]},
     {label: "Tasks", submenu: [
+        {label: "Add Task...", click: () => {OpenAddTaskWindow()}},
         {label: "Clear All Tasks", click: () => {mainWindow.webContents.send("clear-tasks")}}
     ]},
     {label: "Application", submenu: [
         {label: "Close", role: "close"}
     ]},
     {label: "Developer", submenu: [
-        {label: "Toggle Developer Tools", role: "toggledevtools"},
+        {label: "Toggle Developer Tools...", role: "toggledevtools"},
         {label: "Reload", role: "reload"}
     ]}
 ];
+
+function OpenAddTaskWindow() {
+    addTaskWindow = new BrowserWindow({
+        width: 400,
+        height: 300
+    });
+    addTaskWindow.loadURL(`file://${__dirname}/add-task.html`);
+}

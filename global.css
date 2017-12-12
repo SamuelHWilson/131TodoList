@@ -76,35 +76,3 @@ header h1 {
     padding-top: 5px;
 }
 
-#taskbox {
-    display: inline-block;
-    width: 100%;
-    padding: 0% 10%;
-}
-.task, #taskbox-button, #taskbox-new {
-    margin: 1em 0em;
-}
-.task p{
-    font-weight: bold;
-    display: inline-block;
-}
-.task button {
-    display: inline-block;
-    height: 17px;
-    width: 17px;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 7px;
-    margin-top: 2px;
-}
-.task button:hover {
-    background-color: black;
-}
-#taskbox-button img {
-    width: 35px;
-}
-#taskbox-new input {
-    height: 1.5em;
-    width: 100%;
-    font-family: Kalam;
-}

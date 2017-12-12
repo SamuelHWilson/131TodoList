@@ -3,7 +3,8 @@
 
 <head>
     <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <link href="global.css" rel="stylesheet">
+    <link href="tasks.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -22,12 +23,12 @@
                     <p>{{task.desc}}</p>
                 </div>
             </div>
-            <div id="taskbox-button" v-if="makingNew == false" v-on:click="makingNew = true">
+            <div id="taskbox-button" v-show="makingNew == false" v-on:click="StartAddingTask()">
                 <img src="raw/potion.png">
             </div>
-            <div id="taskbox-new" v-if="makingNew == true" class="stone-box">
+            <div id="taskbox-new" v-show="makingNew == true" class="stone-box">
                 <div>
-                    <input id="taskbox-new-input" v-on:keyup.enter="SubmitNewTask()" type="text">
+                    <input id="taskbox-new-input" v-on:keyup.enter="CompleteAddingTask()" type="text">
                 </div>
             </div>
         </div>
