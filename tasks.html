@@ -18,7 +18,7 @@
         <div id="taskbox">
             <div v-for="task in tasks" class="stone-box task">
                 <div>
-                    <button></button>
+                    <button v-on:click="CompleteTask(task)"></button>
                     <p>{{task.desc}}</p>
                 </div>
             </div>

@@ -11,6 +11,12 @@ var MainVue = new Vue({
     el: "#main",
     data: {
         tasks: []
+    },
+    methods: {
+        CompleteTask(toRemove) {
+            var index = this.tasks.indexOf(toRemove);
+            this.tasks.splice(index, 1);
+        }
     }
 });
 
@@ -47,7 +53,6 @@ ipc.on("clear-tasks", (event) => {
 });
 
 ipc.on("save-last", (event) => {
-    console.log(currentFile);
     if (currentFile != "") {
         fs.writeFileSync(currentFile, JSON.stringify(MainVue.tasks));
     }

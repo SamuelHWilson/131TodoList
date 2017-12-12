@@ -25,14 +25,15 @@ app.on("ready", () => {
 });
 
 const menuTemplate = [
-    {label: "Tasks", submenu: [
-        {label: "New Task", click: () => {}},
-        {label: "Clear All Tasks", click: () => {mainWindow.webContents.send("clear-tasks")}},
-        {type: "separator"},
+    {label: "File", submenu: [
         {label: "Open...", click: () => {mainWindow.webContents.send("open-file")}},
         {type: "separator"},
         {label: "Save", click: () => {mainWindow.webContents.send("save-last")}},
         {label: "Save As...", click: () => {mainWindow.webContents.send("save-file")}}
+    ]},
+    {label: "Tasks", submenu: [
+        {label: "New Task", click: () => {}},
+        {label: "Clear All Tasks", click: () => {mainWindow.webContents.send("clear-tasks")}}
     ]},
     {label: "Application", submenu: [
         {label: "Close", role: "close"}

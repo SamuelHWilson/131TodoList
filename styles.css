@@ -86,17 +86,17 @@ header h1 {
 }
 .task p{
     font-weight: bold;
+    display: inline-block;
 }
 .task button {
-    float: left;
-    -webkit-appearance:none;
+    display: inline-block;
     height: 17px;
     width: 17px;
     background-color: white;
     border: 1px solid black;
     border-radius: 7px;
-    margin-right: 5px;
     margin-top: 2px;
-    /* width: 80%;
-    height: 80%; */
+}
+.task button:hover {
+    background-color: black;
 }
