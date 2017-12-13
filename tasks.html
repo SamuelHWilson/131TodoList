@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="global.css" rel="stylesheet">
-    <link href="tasks.css" rel="stylesheet">
+    <link href="res/css/bootstrap.min.css" rel="stylesheet">
+    <link href="res/css/global.css" rel="stylesheet">
+    <link href="res/css/tasks.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -17,24 +17,31 @@
         </header>
 
         <div id="taskbox">
-            <div v-for="task in tasks" class="stone-box task">
+            <div v-if="tasks.length == 0" class="stone-box task tc">
+                <div>
+                    <p>Nothing to do yet! Try adding a task...</p>
+                </div>
+            </div>
+            <div v-for="task in tasks" v-on:dblclick="CompleteTask(task)" class="stone-box task">
                 <div>
                     <button v-on:click="CompleteTask(task)"></button>
                     <p>{{task.desc}}</p>
                 </div>
             </div>
-            <div id="taskbox-button" v-show="makingNew == false" v-on:click="StartAddingTask()">
-                <img src="raw/potion.png">
-            </div>
+            <a id="taskbox-button" v-show="makingNew == false" v-on:click="StartAddingTask()" class="image-button">
+                <img src="res/img/potion.png">
+            </a>
             <div id="taskbox-new" v-show="makingNew == true" class="stone-box">
                 <div>
                     <input id="taskbox-new-input" v-on:keyup.enter="CompleteAddingTask()" type="text">
+                    <a class="image-button" v-on:click="CompleteAddingTask()"><img src="res/img/check.png"></a>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="tasks.js"></script>
+    <script src="res/js/taskobj.js"></script>
+    <script src="res/js/tasks.js"></script>
 </body>
 
 </html>

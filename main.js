@@ -53,3 +53,8 @@ function OpenAddTaskWindow() {
     });
     addTaskWindow.loadURL(`file://${__dirname}/add-task.html`);
 }
+
+/* Remote Links */
+ipc.on("remote-add", (event, task) => {
+    mainWindow.webContents.send("remote-add", task);
+});

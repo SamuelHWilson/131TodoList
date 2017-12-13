@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="global.css">
-    <link rel="stylesheet" fref="add-task.css">
+    <link href="res/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="res/css/global.css">
+    <link rel="stylesheet" href="res/css/tasks.css">
     <title>Add Task</title>
 </head>
 <body>
@@ -15,13 +15,18 @@
                 <h1>Add New Item</h1>
             </div>
         </header>
-        <div class="stone-box">
-            <div>
-                <input v-on:keyup.enter="CompleteAddingTask()" type="text">
+        <div id="taskbox">
+            <div id="taskbox-new" class="stone-box">
+                <div>
+                    <input id="taskbox-new-input" v-on:keyup.enter="RemoteAddTask()" type="text">
+                    <a class="image-button" v-on:click="RemoteAddTask()"><img src="res/img/check.png"></a>
+                </div>
             </div>
         </div>
     </div>
-    <script src="add-task.js"></script>
+
+    <script src="res/js/taskobj.js"></script>
+    <script src="res/js/add-task.js"></script>
 </body>
 
 </html>
