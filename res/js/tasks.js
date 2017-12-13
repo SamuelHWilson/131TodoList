@@ -93,6 +93,10 @@ ipc.on("clear-tasks", (event) => {
 ipc.on("save-last", (event) => {
     if (currentFile != "") {
         fs.writeFileSync(currentFile, JSON.stringify(MainVue.tasks));
+
+        HelperVue.QueueAdvice(new AdviceObj("Done! Got everything saved for later.", 0, true));
+    } else {
+        HelperVue.QueueAdvice(new AdviceObj("Can't do that boss! You don't have a file open right now.", 2));
     }
 });
 
