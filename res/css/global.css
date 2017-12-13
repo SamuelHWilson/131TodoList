@@ -9,11 +9,18 @@ h1, p {
     margin: 0px;
     padding: 0px;
 }
+body, div, img, p, h1, h2, h3, h4, h5, h6 {
+    box-sizing: border-box;
+}
 
 /* --- General --- */
-
+html {
+    overflow-y: scroll;
+    overflow-x: none;
+}
 body {
     font-family: Kalam;
+    padding-right: 28px; 
 }
 
 /* --- Utility --- */
@@ -29,7 +36,6 @@ body {
     border: 1px solid tan; 
     padding: 3px;
     height: 100%;
-    width: 100%;
 }
 .stone-box p, .stone-box h1, .stone-box input {
     opacity: 0.9;
@@ -54,17 +60,36 @@ body {
 }
 
 /* a based image buttons */
+.image-button {
+    display: block;
+}
 .image-button img {
     width: 100%;
     height: 100%;
+    float: left;
 }
 .image-button:hover {
     cursor: pointer;
 }
 
+/* Paragraph Labels */
+.white-label {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 3px;
+    padding: 0px 3px;
+}
+
 /* Center Text */
 .tc {
     text-align: center;
+}
+
+/* Clickable */
+.clickable:hover {
+    cursor: pointer;
 }
 
 /* --- Specific --- */ 

@@ -1,0 +1,50 @@
+#helper-box {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100vw;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+}
+#helper-box #helper-sprite {
+    margin-left: 10px;
+    width: 90px;
+    float: left;
+}
+
+#helper-box #helper-danger-level {
+    position: absolute;
+    top: -25px;
+    left: 45px;
+    /* box-shadow: 10px, 10px, black; */
+}
+
+#helper-box #helper-speech-cloud {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: calc(100% - 160px);
+    padding: 3px;
+    position: absolute;
+    bottom: 10px;
+    left: 130px;
+}
+#helper-box #helper-speech-cloud #helper-dismiss {
+    width: 15px;
+    height: 15px;
+    float: right;
+}
+
+#helper-box #helper-question-buttons {
+    width: 60px;
+    height: 25px;
+    margin-top: 7px;
+    display: block;
+    margin: auto;
+}
+#helper-box #helper-question-buttons a:first-child {
+    float: right;
+}
+#helper-box #helper-question-buttons .image-button {
+    width: 25px;
+    height: 25px;
+}

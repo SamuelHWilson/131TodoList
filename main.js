@@ -15,6 +15,7 @@ app.on("ready", () => {
         height: 700
     });
     mainWindow.loadURL(`file://${__dirname}/tasks.html`);
+    mainWindow.setResizable(false);
     
     const menu = Menu.buildFromTemplate(menuTemplate);
     mainWindow.setMenu(menu);

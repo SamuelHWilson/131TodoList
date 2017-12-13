@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <link href="res/css/bootstrap.min.css" rel="stylesheet">
     <link href="res/css/global.css" rel="stylesheet">
     <link href="res/css/tasks.css" rel="stylesheet">
-    <title>Document</title>
+    <link href="res/css/helper.css" rel="stylesheet">
+    <title>Daily Quest Tracker</title>
 </head>
 <body>
     <script src="res/js/vue.js"></script>
@@ -28,9 +28,14 @@
                     <p>{{task.desc}}</p>
                 </div>
             </div>
-            <a id="taskbox-button" v-show="makingNew == false" v-on:click="StartAddingTask()" class="image-button">
-                <img src="res/img/potion.png">
-            </a>
+            <div>
+                <div v-show="makingNew == false">
+                    <a id="taskbox-button" v-on:click="StartAddingTask()" class="image-button">
+                        <img src="res/img/potion.png">
+                    </a>
+                    <p class="white-label clickable" v-on:click="StartAddingTask()">New Task</p>
+                </div>
+            </div>
             <div id="taskbox-new" v-show="makingNew == true" class="stone-box">
                 <div>
                     <input id="taskbox-new-input" v-on:keyup.enter="CompleteAddingTask()" type="text">
@@ -40,8 +45,22 @@
         </div>
     </div>
 
+    <div v-if="hasAdvice == true" id="helper-box">
+        <img id="helper-sprite" src="res/img/helper-sprite.png">
+        <img id="helper-danger-level" v-bind:src="dangerMap[currentAdvice.danger]"> 
+        <div id="helper-speech-cloud">
+            <a id="helper-dismiss" v-on:click="DismissCurrentAdvice()" v-if="currentAdvice.isQuestion == false" class="image-button"><img src="res/img/dismiss.png"></a>
+            <p>{{currentAdvice.text}}</p>
+            <div id="helper-question-buttons" v-if="currentAdvice.isQuestion == true">
+                <a v-on:click="DismissCurrentAdvice()" class="image-button"><img src="res/img/cross.png"></a>
+                <a v-on:click="ConfirmCurrentQuestion()" class="image-button"><img src="res/img/check.png"></a>
+            </div>
+        </div>
+    </div>
+
     <script src="res/js/taskobj.js"></script>
     <script src="res/js/tasks.js"></script>
+    <script src="res/js/helper.js"></script>
 </body>
 
 </html>

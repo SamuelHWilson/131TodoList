@@ -44,15 +44,29 @@ ipc.on("remote-add", (event, task) => {
 
 ipc.on("open-file", (event) => {
     dialog.showOpenDialog((selectedFiles) => {
-        if (selectedFiles === undefined) {
+        if (selectedFiles === undefined) { // If user didn't pick a file.
             console.log("File not selected.");
-        } else if (selectedFiles.length > 1) {
-            console.log("Only one file can be selected");
-        } else {
-            filePath = selectedFiles[0];
+            var fileName = filePath.split("/")
 
-            MainVue.tasks = JSON.parse(fs.readFileSync(filePath));
-            currentFile = filePath;
+            HelperVue.QueueAdvice(new AdviceObj("Woah, slow down. You forgot to pick a file!", 2));
+        } else if (selectedFiles.length > 1) { //If user picked more than one file.
+            var fileName = filePath.split("/")
+
+            HelperVue.QueueAdvice(new AdviceObj("Hmm... Looks like you tried to open more than one file boss. I'm good, but not that good. Just open one.", 2));
+        } else {
+            // Grab filepath from returned array.
+            var filePath = selectedFiles[0];
+
+            // Attempt to load JSON file into tasks
+            try {
+                MainVue.tasks = JSON.parse(fs.readFileSync(filePath));
+                currentFile = filePath;
+            } catch(e) {
+                HelperVue.QueueAdvice(new AdviceObj("Boss, somethings wrong with that file: I can't open it. Are you sure you picked the right one?", 2));
+                return;
+            }
+            
+            HelperVue.QueueAdvice(new AdviceObj("Ready to go boss! Found that file and got it opened up for you.", 0, true));
         }
     })
 });
@@ -60,16 +74,20 @@ ipc.on("open-file", (event) => {
 ipc.on("save-file", (event) => {
     dialog.showSaveDialog((filePath) => {
         if (filePath === undefined) {
-            console.log("File not selected.");
+            HelperVue.QueueAdvice(new AdviceObj("Woah, slow down boss! You forgot to pick a file.", 2));
         } else {
             fs.writeFileSync(filePath, JSON.stringify(MainVue.tasks));
             currentFile = filePath;
+
+            HelperVue.QueueAdvice(new AdviceObj("Done! Got everything saved for later.", 0, true));
         }
     })
 });
 
 ipc.on("clear-tasks", (event) => {
-    MainVue.tasks = [];
+    HelperVue.QueueQuestion(new QuestionObj("Are you sure you want to do that boss?", () => {
+        MainVue.tasks = [];
+    }));
 });
 
 ipc.on("save-last", (event) => {

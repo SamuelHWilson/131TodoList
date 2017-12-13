@@ -30,8 +30,9 @@
     height: 1.5em;
     width: 90%;
     font-family: Kalam;
+    font-weight: bold;
 }
 #taskbox-new a {
-    display: inline-block;
-    width: 7%;
+    width: 8%;
+    float: right;
 }
